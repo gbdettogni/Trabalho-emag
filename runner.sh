@@ -4,7 +4,7 @@ pkill -F tempp
 gcc setter.c -o setterrr
 ./setter
 sleep 1
-rm setterrr temppp
+rm setterrr temppp tempp
 mkoctfile -c main.cpp
 mkoctfile --link-stand-alone -o prog main.o
 octave main.m &
