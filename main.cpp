@@ -25,7 +25,7 @@ int main(){
     int ny = 70;
     double h = 0.1;
     double E = 8.85*pow(10,-12);
-    double ro = 1.59*pow(10, -8);
+    double ro = 1;//1.59*pow(10, -8);
     int f = 0;
     int p1 = nx/2;
     int p2 = ny/2;
@@ -212,8 +212,10 @@ int main(){
             for(int i = 1; i < nx-1; i++){
                 for(int j = 1; j < ny-1; j++){
                     double old = v[i][j];
-                    v[i][j] = 0.25 * (v[i+1][j] + v[i-1][j] + v[i][j+1] + v[i][j-1] + p[i][j]*h*h/E);
-                    med = med + fabs(v[i][j]-old);
+                    if(p[i][j]*h*h/E == 0){
+                        v[i][j] = 0.25 * (v[i+1][j] + v[i-1][j] + v[i][j+1] + v[i][j-1] + p[i][j]*h*h/E);
+                        med = med + fabs(v[i][j]-old);
+                    }
                 }
             }
             med = med / ((nx-2)*(ny-2));
