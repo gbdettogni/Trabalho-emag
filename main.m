@@ -5,7 +5,8 @@ while true
   fclose(tsl);
   if flag == 48
     m = load("out.mat");
-    contour(m.M_matrix);
+    contour(m.M_matrix, 50);
+    colormap("jet")
     tsl = fopen("tsl", "w");
     fwrite(tsl, "1");
     fclose(tsl);
